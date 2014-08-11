@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount AccountMultiTenancy::Engine => "/account_multi_tenancy"
+  mount AccountMultiTenancy::Engine => "/tenant"
 end
