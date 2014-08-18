@@ -1,3 +1,13 @@
 = AccountMultiTenancy
 
+This will morph into a Multi tenancy engine that will make it spimpler to spin-up SASS based Ruby on Rails applications that 
+support multi-users per organisation.
+
+== Features
+
+* Authentication using Warden
+* Sub-domain for each orgaonization created
+* Suscription (TBD)
+
+== License
 This project rocks and uses MIT-LICENSE.
