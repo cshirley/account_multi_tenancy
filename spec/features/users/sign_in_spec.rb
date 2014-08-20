@@ -15,7 +15,7 @@ feature "User sign in" do
       expect(page.current_url).to eq(root_url)
     end
     scenario "attempts sign in with an invalid password and fails" do
-      visit account_multi_tenancy.root_url(:subdomain => account.subdomain)
+      visit tenant.root_url(:subdomain => account.subdomain)
       expect(page.current_url).to eq(sign_in_url)
       expect(page).to have_content("Please sign in.")
       fill_in "Email", :with => account.owner.email
@@ -25,7 +25,7 @@ feature "User sign in" do
       expect(page.current_url).to eq(sign_in_url)
     end
     scenario "attempts sign in with an invalid email address and fails" do
-      visit account_multi_tenancy.root_url(:subdomain => account.subdomain)
+      visit tenant.root_url(:subdomain => account.subdomain)
       expect(page.current_url).to eq(sign_in_url)
       expect(page).to have_content("Please sign in.")
       fill_in "Email", :with => "foo@example.com"
@@ -36,7 +36,7 @@ feature "User sign in" do
     end
     scenario "cannot sign in if not a part of this subdomain" do
       other_account = FactoryGirl.create(:account)
-      visit account_multi_tenancy.root_url(:subdomain => account.subdomain)
+      visit tenant.root_url(:subdomain => account.subdomain)
       expect(page.current_url).to eq(sign_in_url)
       expect(page).to have_content("Please sign in.")
       fill_in "Email", :with => other_account.owner.email

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    account_multi_tenancy (0.0.1)
+    tenant (0.0.1)
       dynamic_form (= 1.1.4)
       rails (~> 4.1.4)
       warden (= 1.2.3)
@@ -124,9 +124,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  account_multi_tenancy!
   bcrypt (= 3.1.7)
   capybara (= 2.3.0)
   factory_girl (= 4.4.0)
   rspec-rails (= 3.0.1)
   sqlite3
+  tenant!

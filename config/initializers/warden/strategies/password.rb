@@ -8,8 +8,8 @@ Warden::Strategies.add(:password) do
   end
 
   def authenticate!
-    #return fail! unless account = AccountMultiTenancy::Account.find_by(subdomain: subdomain)
-    return fail! unless user = AccountMultiTenancy::User.find_by(email: params["user"]["email"])
+    #return fail! unless account = Tenant::Account.find_by(subdomain: subdomain)
+    return fail! unless user = Tenant::User.find_by(email: params["user"]["email"])
     return fail! unless user.authenticate(params["user"]["password"])
     success! user
   end

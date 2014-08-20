@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140811141858) do
 
-  create_table "account_multi_tenancy_accounts", force: true do |t|
+  create_table "tenant_accounts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20140811141858) do
     t.string   "subdomain"
   end
 
-  add_index "account_multi_tenancy_accounts", ["subdomain"], name: "index_account_multi_tenancy_accounts_on_subdomain"
+  add_index "tenant_accounts", ["subdomain"], name: "index_tenant_accounts_on_subdomain"
 
-  create_table "account_multi_tenancy_users", force: true do |t|
+  create_table "tenant_users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"

@@ -1,7 +1,7 @@
-require "account_multi_tenancy/constraints/subdomain_required"
+require "tenant/constraints/subdomain_required"
 
-AccountMultiTenancy::Engine.routes.draw do
-  constraints(AccountMultiTenancy::Constraints::SubdomainRequired) do
+Tenant::Engine.routes.draw do
+  constraints(Tenant::Constraints::SubdomainRequired) do
     scope :module => "account" do
       root :to => "dashboard#index", :as => :account_root
       get "/sign_in", :to => "sessions#new", :as => :sign_in

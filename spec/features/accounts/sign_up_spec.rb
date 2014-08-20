@@ -1,7 +1,7 @@
 require "rails_helper"
 feature "Accounts" do
   scenario "creating an account" do
-    visit account_multi_tenancy.root_path
+    visit tenant.root_path
     click_link "Account Sign Up"
     fill_in "Name", :with => "Test"
     fill_in "Subdomain", :with => "test"
@@ -16,8 +16,8 @@ feature "Accounts" do
 
   end
   scenario "Ensure subdomain uniqueness" do
-    AccountMultiTenancy::Account.create!(:subdomain => "test", :name => "Test")
-    visit account_multi_tenancy.root_path
+    Tenant::Account.create!(:subdomain => "test", :name => "Test")
+    visit tenant.root_path
     click_link "Account Sign Up"
     fill_in "Name", :with => 'Test'
     fill_in "Subdomain", :with => 'test'
@@ -30,7 +30,7 @@ feature "Accounts" do
     expect(page).to have_content("Subdomain has already been taken")
   end
   scenario "Subdomain with restricted name" do
-    visit account_multi_tenancy.root_path
+    visit tenant.root_path
     click_link "Account Sign Up"
     fill_in "Name", :with => "Test"
     fill_in "Subdomain", :with => "admin"
@@ -43,7 +43,7 @@ feature "Accounts" do
     expect(page).to have_content("Subdomain is not allowed")
   end
   scenario "Subdomain with invalid name" do
-    visit account_multi_tenancy.root_path
+    visit tenant.root_path
     click_link "Account Sign Up"
     fill_in "Name", :with => "Test"
     fill_in "Subdomain", :with => "<admin>"

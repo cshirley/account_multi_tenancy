@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "account_multi_tenancy"
+require "tenant"
 
 module Dummy
   class Application < Rails::Application
