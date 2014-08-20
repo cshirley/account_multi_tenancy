@@ -1,6 +1,8 @@
-= AccountMultiTenancy
+= Tenant Engine
 
-This will morph into a Multi tenancy engine that will make it spimpler to spin-up SASS based Ruby on Rails applications that 
+Note: this is a work in progress
+
+This will morph into a Multi tenancy engine that will make it spimpler to spin-up SASS based Ruby on Rails applications that
 support multi-users per organisation.
 
 == Features
